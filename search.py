@@ -6,50 +6,42 @@ from generate_lists import gen_sorted_list
 
 
 def linear(_list: List[int], item: int) -> Optional[int]:
-    lower_bound = 0
-    upper_bound = len(_list)
+    # go through each item with its index and return if found
+    for (index, x) in enumerate(_list):
+        if x == item:
+            return index
 
-    found = False
-    index = lower_bound
-
-    while not found and index < upper_bound:
-        if _list[index] == item:
-            found = True
-        else:
-            index += 1
-
-    if found:
-        return index
-    else:
-        return None
+    # item has not been found so return None
+    return None
 
 
 def binary(_list: List[int], item: int) -> Optional[int]:
+    # start by including the whole list in our search (0 to length)
     lower_bound = 0
     upper_bound = len(_list)
 
-    found = False
-    index = None
-    while not found and lower_bound != upper_bound:
+    # loop until the two bounds are the same (no area to search)
+    while lower_bound != upper_bound:
+        # find the mid point and round down to an integer (so we can index the list)
         index = math.floor(lower_bound + ((upper_bound - lower_bound) / 2))
         current = _list[index]
 
         if item < current:
+            # remove the upper area from the search
             upper_bound = index - 1
         elif item > current:
+            # remove the lower area from the search
             lower_bound = index + 1
         else:
-            found = True
+            # item is equal to the current index, so return index
+            return index
 
-    if found:
-        return index
-    else:
-        return None
+    # item has not been found so return None
+    return None
 
 
-def test_search(length: int):
-    # a function to test searches on a list of certain length
-
+# a function to test searches on a list of certain length
+def test_search(length: int) -> None:
     _list = gen_sorted_list(length)
 
     # chose a random element from the list
@@ -61,7 +53,7 @@ def test_search(length: int):
     # we know this element can never be present
     not_present = _list[length-1] + 1
 
-    for (name, search) in [("linear", linear), ("binary", binary)]:
+    for name, search in [("linear", linear), ("binary", binary)]:
         assert search(_list, present) == present_index
         assert search(_list, not_present) is None
         print("{} search works".format(name))

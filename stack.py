@@ -6,6 +6,7 @@ class StackException(Exception):
     # and exceptions created in stack operations
     pass
 
+
 # the generic type of the stack
 T = TypeVar('T')
 
@@ -46,7 +47,8 @@ class Stack(Generic[T]):
             self.list[self.top] = item
 
 
-def test_stack(length: int):
+# a function to test operations on a stack of certain length
+def test_stack(length: int) -> None:
     # a function to test a stack of a certain length
 
     stack = Stack[int](length)
@@ -64,8 +66,8 @@ def test_stack(length: int):
         raise Exception("expected push to fail on full stack but it did not")
 
     # check stack is popped in right order (reverse order)
-    for x in range(length):
-        assert stack.pop() == length - 1 - x
+    for x in reversed(range(length)):
+        assert stack.pop() == x
 
     # check exception is thrown when popping an empty stack
     try:

@@ -6,6 +6,7 @@ class QueueException(Exception):
     # and exceptions created in queue operations
     pass
 
+
 # the generic type of the queue
 T = TypeVar('T')
 
@@ -56,7 +57,8 @@ class Queue(Generic[T]):
         return item
 
 
-def test_queue(length: int):
+# a function to test operations on a queue of certain length
+def test_queue(length: int) -> None:
     # a function to test a queue of a certain length
 
     queue = Queue[int](length)

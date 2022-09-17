@@ -104,7 +104,6 @@ class LinkedList(Generic[T]):
 
 # a function to test operations on a linked list of certain length
 def test_linked_list(length: int) -> None:
-    # make a linked list of int's
     linked_list: LinkedList[int] = LinkedList[int]()
 
     # test append works in correct oder

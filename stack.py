@@ -49,9 +49,8 @@ class Stack(Generic[T]):
 
 # a function to test operations on a stack of certain length
 def test_stack(length: int) -> None:
-    # a function to test a stack of a certain length
 
-    stack = Stack[int](length)
+    stack: Stack[int] = Stack[int](length)
 
     # push stack to full
     for x in range(length):

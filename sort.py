@@ -68,8 +68,7 @@ def benchmark_sorts():
     # how many times to repeat the test
     iterations = int(input("Enter iterations: "))
 
-    for sort in sorts:
-        (func, name) = sort
+    for func, name in sorts:
 
         # a sum of all times for this sort
         total_time = 0

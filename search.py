@@ -44,13 +44,11 @@ def binary(_list: List[int], item: int) -> Optional[int]:
 def test_search(length: int) -> None:
     _list = gen_sorted_list(length)
 
-    # chose a random element from the list
-    # so that we know it is present
+    # chose a random element from the list  so that we know it is present
     present_index = random.randint(0, length - 1)
     present = _list[present_index]
 
-    # since the list is sorted and we added 1 to the last element
-    # we know this element can never be present
+    # since the list is sorted and we added 1 to the last element  we know this element can never be present
     not_present = _list[length-1] + 1
 
     for name, search in [("linear", linear), ("binary", binary)]:

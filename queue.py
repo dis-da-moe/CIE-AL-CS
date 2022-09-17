@@ -2,8 +2,7 @@ from typing import TypeVar, Generic, List, Optional
 
 
 class QueueException(Exception):
-    # An exception type to differentiate from normal exceptions
-    # and exceptions created in queue operations
+    # An exception type to differentiate from normal exceptions and exceptions created in queue operations
     pass
 
 
@@ -36,14 +35,13 @@ class Queue(Generic[T]):
             self.rear = 0
 
     def dequeue(self) -> T:
-        # if the rear and front are equal, then either we have no elements or are full
-        # to differentiate, we check the element at the front is nothing
+        # if the rear and front are equal, then either we have no elements or are full. to differentiate,
+        # we check the element at the front is nothing
         if self.rear == self.front and self.list[self.front] is None:
             raise QueueException("Queue is empty but tried to dequeue")
 
-        # save the item before setting it to none
-        # we set it to none to allow us to
-        # check if the queue is empty or not in the future
+        # save the item before setting it to none we set it to none to allow us to check if the queue is empty or not
+        # in the future
         item = self.list[self.front]
         self.list[self.front] = None
         # decrement front pointer
@@ -59,9 +57,8 @@ class Queue(Generic[T]):
 
 # a function to test operations on a queue of certain length
 def test_queue(length: int) -> None:
-    # a function to test a queue of a certain length
 
-    queue = Queue[int](length)
+    queue: Queue[int] = Queue[int](length)
 
     # insert the queue to full
     for x in range(length):

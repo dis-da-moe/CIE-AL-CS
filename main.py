@@ -1,5 +1,6 @@
 from typing import Tuple, List, Callable
 
+from binary_tree import test_binary_tree
 from linked_list import test_linked_list
 from queue import test_queue
 from search import test_search
@@ -19,7 +20,8 @@ options: List[Tuple[str, Callable[[int], None]]] = [
     ("sorts", test_sorts),
     ("stack", test_stack),
     ("queue", test_queue),
-    ("linked list", test_linked_list)
+    ("linked list", test_linked_list),
+    ("binary tree", test_binary_tree)
 ]
 
 # print all tests and let the user choose one or all

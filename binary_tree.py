@@ -72,3 +72,4 @@ def test_binary_tree(length: int) -> None:
     binary_tree.insert(10)
     binary_tree.insert(4)
     binary_tree.insert(20)
+

@@ -48,7 +48,7 @@ class Stack(Generic[T]):
 
 
 # a function to test operations on a stack of certain length
-def test_stack(length: int) -> None:
+def test(length: int) -> None:
 
     stack: Stack[int] = Stack[int](length)
 

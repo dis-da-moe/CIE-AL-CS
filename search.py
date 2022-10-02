@@ -41,7 +41,7 @@ def binary(_list: List[int], item: int) -> Optional[int]:
 
 
 # a function to test searches on a list of certain length
-def test_search(length: int) -> None:
+def test(length: int) -> None:
     _list = gen_sorted_list(length)
 
     # chose a random element from the list  so that we know it is present

@@ -56,7 +56,7 @@ class Queue(Generic[T]):
 
 
 # a function to test operations on a queue of certain length
-def test_queue(length: int) -> None:
+def test(length: int) -> None:
 
     queue: Queue[int] = Queue[int](length)
 

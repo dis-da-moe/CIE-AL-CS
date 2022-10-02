@@ -42,7 +42,7 @@ sorts = [(bubble, "bubble"), (insertion, "insertion")]
 
 
 # a function to test sorts on a list of certain length
-def test_sorts(length: int) -> None:
+def test(length: int) -> None:
 
     for func, name in sorts:
         rand_list = gen_random_list(length)
@@ -61,7 +61,7 @@ def test_sorts(length: int) -> None:
 
 
 # a function to benchmark sorts
-def benchmark_sorts():
+def benchmark():
 
     # the length of the lists to test
     list_length = int(input("Enter list length: "))

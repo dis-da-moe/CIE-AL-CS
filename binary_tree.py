@@ -67,7 +67,7 @@ class BinaryTree(Generic[T]):
             parent.right = node_index
 
 
-def test_binary_tree(length: int) -> None:
+def test(length: int) -> None:
     binary_tree: BinaryTree[int] = BinaryTree[int](length)
     binary_tree.insert(10)
     binary_tree.insert(4)

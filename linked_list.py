@@ -162,7 +162,7 @@ class LinkedList(Generic[T]):
 
 
 # a function to test operations on a linked list of certain length
-def test_linked_list(length: int) -> None:
+def test(length: int) -> None:
     linked_list: LinkedList[int] = LinkedList[int](length)
 
     # test append works

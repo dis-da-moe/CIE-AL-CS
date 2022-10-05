@@ -125,6 +125,11 @@ def test(length: int) -> None:
         raise Exception("expected insert to fail on full binary tree but it did not")
 
     binary_tree: BinaryTree[int] = BinaryTree[int](length)
+
+    # create a tree that looks like:
+    #    2
+    #   / \
+    #  1   3
     binary_tree.insert(2)
     binary_tree.insert(1)
     binary_tree.insert(3)

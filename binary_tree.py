@@ -88,7 +88,7 @@ class BinaryTree(Generic[T]):
             self.pre_order(current.right, list)
         return list
 
-    # generate a list from pre-order traversal of the tree
+    # generate a list from in-order traversal of the tree
     def in_order(self, index: Optional[int], list: List[T]) -> List[T]:
         if index is not None:
             current = self.list[index]
@@ -98,7 +98,7 @@ class BinaryTree(Generic[T]):
             self.in_order(current.right, list)
         return list
 
-    # generate a list from pre-order traversal of the tree
+    # generate a list from post-order traversal of the tree
     def post_order(self, index: Optional[int], list: List[T]) -> List[T]:
         if index is not None:
             current = self.list[index]

@@ -138,3 +138,5 @@ def test(length: int) -> None:
     assert binary_tree.pre_order(binary_tree.root, []) == [2, 1, 3]
     assert binary_tree.in_order(binary_tree.root, []) == [1, 2, 3]
     assert binary_tree.post_order(binary_tree.root, []) == [1, 3, 2]
+
+    print("binary tree works")

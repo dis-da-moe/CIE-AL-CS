@@ -1,5 +1,5 @@
 import random
-from typing import TypeVar, Generic, Optional, List
+from typing import TypeVar, Generic, Optional, List, Callable
 
 
 class BinaryTreeException(Exception):
@@ -78,6 +78,39 @@ class BinaryTree(Generic[T]):
         else:
             parent.right = node_index
 
+    def __recursive_insert(self, item: int, current_index: Optional[int], old_index: Optional[int], left: bool):
+        if current_index is None:
+            if self.heap is None:
+                raise BinaryTreeException("heap is full but tried to insert")
+
+            new_node_index = self.heap
+            node = self.list[new_node_index]
+            self.heap = node.left
+            node.data = item
+            node.left = None
+            node.right = None
+
+            if old_index is None:
+                self.root = new_node_index
+                return
+
+            parent = self.list[old_index]
+            if left:
+                parent.left = new_node_index
+            else:
+                parent.right = new_node_index
+
+            return
+
+        current = self.list[current_index]
+        if item < current.data:
+            self.__recursive_insert(item, current.left, current_index, True)
+        else:
+            self.__recursive_insert(item, current.right, current_index, False)
+
+    def recursive_insert(self, item: int):
+        self.__recursive_insert(item, self.root, None, True)
+
     # generate a list from pre-order traversal of the tree
     def pre_order(self, index: Optional[int], list: List[T]) -> List[T]:
         if index is not None:
@@ -109,34 +142,39 @@ class BinaryTree(Generic[T]):
         return list
 
 
-def test(length: int) -> None:
+def test_insert(length: int, insert: Callable[[BinaryTree, int], None]):
     binary_tree: BinaryTree[int] = BinaryTree[int](length)
 
     # insert to binary tree to max
     for x in range(length):
-        binary_tree.insert(random.randint(-length, length))
+        insert(binary_tree, random.randint(-length, length))
 
     # try inserting to full binary tree
     try:
-        binary_tree.insert(0)
+        insert(binary_tree, 0)
     except BinaryTreeException:
         pass
     else:
         raise Exception("expected insert to fail on full binary tree but it did not")
 
-    binary_tree: BinaryTree[int] = BinaryTree[int](length)
+    binary_tree: BinaryTree[int] = BinaryTree[int](3)
 
     # create a tree that looks like:
     #    2
     #   / \
     #  1   3
-    binary_tree.insert(2)
-    binary_tree.insert(1)
-    binary_tree.insert(3)
+    insert(binary_tree, 2)
+    insert(binary_tree, 1)
+    insert(binary_tree, 3)
 
     # try different binary traversal methods
     assert binary_tree.pre_order(binary_tree.root, []) == [2, 1, 3]
     assert binary_tree.in_order(binary_tree.root, []) == [1, 2, 3]
     assert binary_tree.post_order(binary_tree.root, []) == [1, 3, 2]
+
+
+def test(length: int) -> None:
+    test_insert(length, lambda tree, item: tree.insert(item))
+    test_insert(length, lambda tree, item: tree.recursive_insert(item))
 
     print("binary tree works")

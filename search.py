@@ -22,8 +22,8 @@ def binary(_list: List[int], item: int) -> Optional[int]:
 
     # loop until the two bounds are the same (no area to search)
     while lower_bound != upper_bound:
-        # find the mid point and round down to an integer (so we can index the list)
-        index = math.floor(lower_bound + ((upper_bound - lower_bound) / 2))
+        # find the mid point by floor division
+        index = lower_bound + upper_bound // 2
         current = _list[index]
 
         if item < current:

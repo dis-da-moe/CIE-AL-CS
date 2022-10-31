@@ -1,4 +1,4 @@
-from typing import Tuple, List, Callable, TypeVar
+from typing import Tuple, List, Callable
 
 import binary_tree
 import linked_list
@@ -8,6 +8,7 @@ import sort
 import stack
 
 import oct_nov_2021_9618_41
+import may_jun_2022_9618_33
 
 
 # test a function that accepts a length as input
@@ -30,7 +31,8 @@ tests: List[Tuple[str, Callable[[], None]]] = list(map(
 ))
 
 past_papers: List[Tuple[str, Callable[[], None]]] = [
-    ("oct_nov_2021_9618_41", oct_nov_2021_9618_41.main_program)
+    ("oct_nov_2021_9618_41", oct_nov_2021_9618_41.main_program),
+    ("may_jun_2022_9618_33", may_jun_2022_9618_33.main_program)
 ]
 
 

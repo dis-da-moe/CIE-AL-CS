@@ -2,7 +2,7 @@ import math
 import random
 from typing import Optional, List
 
-from generate_lists import gen_sorted_list
+from util import gen_sorted_list
 
 
 def linear(_list: List[int], item: int) -> Optional[int]:

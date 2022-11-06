@@ -40,7 +40,7 @@ def add_node(array_nodes: List[List[int]], root_pointer: int, free_node: int) ->
     return root_pointer, free_node
 
 
-def main_program():
+def q3():
     length: int = 20
 
     array_nodes: List[List[int]] = [[NULL, NULL, NULL] for _ in range(length)]

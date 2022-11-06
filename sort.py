@@ -1,6 +1,6 @@
 from typing import List
 import time
-from generate_lists import gen_random_list
+from util import gen_random_list
 
 
 def bubble(_list: List[int], length: int):

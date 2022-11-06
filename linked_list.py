@@ -1,6 +1,6 @@
 from typing import TypeVar, Generic, Optional, List
 
-from generate_lists import gen_random_list
+from util import gen_random_list
 
 
 class LinkedListException(Exception):

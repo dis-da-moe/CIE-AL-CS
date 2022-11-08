@@ -10,6 +10,7 @@ import stack
 import oct_nov_2021_9618_41
 import may_jun_2022_9618_43
 import may_jun_2022_9618_42
+import may_jun_2022_9618_41
 from util import menu
 
 
@@ -33,7 +34,8 @@ tests: List[Tuple[str, Callable[[], None]]] = list(map(
 ))
 
 past_papers: List[Tuple[str, Callable[[], None]]] = [
-    ("oct_nov_2021_9618_41", oct_nov_2021_9618_41.q3),
+    ("oct_nov_2021_9618_41", oct_nov_2021_9618_41.q_3),
+    ("may_jun_2022_9618_41", may_jun_2022_9618_41.questions),
     ("may_jun_2022_9618_42", may_jun_2022_9618_42.questions),
     ("may_jun_2022_9618_43", may_jun_2022_9618_43.questions)
 ]

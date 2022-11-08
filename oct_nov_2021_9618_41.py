@@ -40,7 +40,7 @@ def add_node(array_nodes: List[List[int]], root_pointer: int, free_node: int) ->
     return root_pointer, free_node
 
 
-def q3():
+def q_3():
     length: int = 20
 
     array_nodes: List[List[int]] = [[NULL, NULL, NULL] for _ in range(length)]
@@ -62,7 +62,7 @@ def q3():
             print(array_nodes[current][1])
             in_order(array_nodes[current][2])
 
-    for x in range(10):
+    for _ in range(10):
         root_pointer, free_node = add_node(array_nodes, root_pointer, free_node)
 
     in_order(root_pointer)

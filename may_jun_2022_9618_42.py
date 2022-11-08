@@ -3,6 +3,7 @@ from typing import List, Optional
 
 from util import menu
 
+
 def q_1() -> None:
     stack_data: List[Optional[int]] = [None for _ in range(10)]
     stack_pointer: int = 0
@@ -41,6 +42,7 @@ def q_1() -> None:
         pop()
     print_all()
 
+
 def q_2() -> None:
     array: List[List[int]] = [[random.randint(1,100) for _ in range(10)] for _ in range(10)]
 
@@ -63,6 +65,7 @@ def q_2() -> None:
                     array[i][k] = array[i][k + 1]
                     array[i][k + 1] = temp
     print_all()
+
 
 def q_3() -> None:
     class Card:
@@ -110,6 +113,7 @@ def q_3() -> None:
         chosen: Card = array[choose_card()]
         print(f"Number: {chosen.get_number()}, Colour: {chosen.get_colour()}")
         player_1.append(chosen)
+
 
 def questions() -> None:
     menu([
